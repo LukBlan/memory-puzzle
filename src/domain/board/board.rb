@@ -1,6 +1,6 @@
-# frozen_string_literal: true
+class Board
+  attr_reader :board
 
-class ConsoleInterface
   def initialize(board)
     @board = board
   end
