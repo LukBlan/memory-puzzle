@@ -3,10 +3,14 @@ class Card
 
   def initialize(symbol)
     @symbol = symbol
-    @found = true
+    @found = false
   end
 
-  def toggle_found
-    @found = !found
+  def toggle
+    @found = !@found
+  end
+
+  def eql?(other)
+    @symbol == other.symbol
   end
 end

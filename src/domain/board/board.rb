@@ -4,4 +4,38 @@ class Board
   def initialize(grid)
     @grid = grid
   end
+
+  def game_over
+    @grid.all? do |row|
+      row.all? do |card|
+        card.found
+      end
+    end
+  end
+
+  def toggle_card_in_position(coordinates)
+    card = get_card(coordinates)
+    card.toggle
+  end
+
+  def check_cards_in_positions(coordinates, last_coordinates)
+    actual_card = get_card(coordinates)
+    last_card = get_card(last_coordinates)
+    self.process_cards(actual_card, last_card)
+  end
+
+  def process_cards(actual_card, last_card)
+    if actual_card.eql?(last_card)
+      actual_card.toggle
+    else
+      last_card.toggle
+    end
+  end
+
+  def get_card(coordinates)
+    row = coordinates[0]
+    column = coordinates[1]
+    @grid[row][column]
+  end
+
 end

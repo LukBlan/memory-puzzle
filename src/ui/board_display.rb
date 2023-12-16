@@ -9,6 +9,8 @@ class BoardDisplay
       row.each_with_index do |card|
         if card.found
           print " #{card.symbol}"
+        else
+          print("  ")
         end
       end
 
@@ -22,6 +24,7 @@ class BoardDisplay
 
     (0...board_length).each do |index|
       print " #{index}"
+
     end
     puts
   end
