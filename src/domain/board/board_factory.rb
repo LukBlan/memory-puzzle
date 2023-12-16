@@ -1,4 +1,5 @@
 require_relative './board'
+require_relative './../card'
 
 class BoardFactory
   def initialize(size, cards)
@@ -32,7 +33,7 @@ class BoardFactory
     if board[random_position].length == @size
       locate_card(board, card_index)
     else
-      board[random_position] << card
+      board[random_position] << Card.new(card)
     end
   end
 end

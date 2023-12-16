@@ -1,7 +1,7 @@
 class Board
-  attr_reader :board
+  attr_reader :grid
 
-  def initialize(board)
-    @board = board
+  def initialize(grid)
+    @grid = grid
   end
 end
