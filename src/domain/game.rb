@@ -14,9 +14,9 @@ class Game
     @board.compare_cards_in_coordinates(coordinates, last_coordinates)
   end
 
-  def get_player_input
+  def get_player_input(console_formatter)
     max_size = @board.get_size - 1
-    @player.get_input(max_size)
+    @player.get_input(max_size, console_formatter)
   end
 
   def toggle_card_in_position(coordinates)

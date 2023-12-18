@@ -3,8 +3,8 @@ class HumanPlayer
     @input_separator = input_separator
   end
 
-  def get_input(max_size)
-    user_input = get_user_input(max_size)
+  def get_input(max_size, console_formatter)
+    user_input = get_user_input(max_size, console_formatter)
     coordinates = user_input.split(@input_separator)
     coordinates.map(&:to_i)
   end
@@ -24,7 +24,7 @@ class HumanPlayer
     value >= min_value && value <= max_value
   end
 
-  def get_user_input(max_size)
+  def get_user_input(max_size, console_formatter)
     loop do
       print("Enter a position (e.g 0#{@input_separator}0): ")
       user_input = gets.chomp
@@ -33,7 +33,7 @@ class HumanPlayer
         return user_input
       end
 
-      puts("Invalid input")
+      console_formatter.display_indented_message("Invalid input, try again")
     end
   end
 end
