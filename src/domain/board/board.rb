@@ -5,7 +5,7 @@ class Board
     @grid = grid
   end
 
-  def game_over
+  def game_over?
     @grid.all? do |row|
       row.all? do |card|
         card.found
@@ -22,6 +22,10 @@ class Board
     actual_card = get_card(coordinates)
     last_card = get_card(last_coordinates)
     actual_card.eql?(last_card)
+  end
+
+  def get_size
+    @grid.length
   end
 
   def get_card(coordinates)
