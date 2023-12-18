@@ -18,18 +18,10 @@ class Board
     card.toggle
   end
 
-  def check_cards_in_positions(coordinates, last_coordinates)
+  def compare_cards_in_coordinates(coordinates, last_coordinates)
     actual_card = get_card(coordinates)
     last_card = get_card(last_coordinates)
-    self.process_cards(actual_card, last_card)
-  end
-
-  def process_cards(actual_card, last_card)
-    if actual_card.eql?(last_card)
-      actual_card.toggle
-    else
-      last_card.toggle
-    end
+    actual_card.eql?(last_card)
   end
 
   def get_card(coordinates)
