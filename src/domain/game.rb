@@ -8,6 +8,10 @@ class Game
     @actual_guess = nil
   end
 
+  def valid_moves
+    @board.valid_moves
+  end
+
   def game_over?
     @board.game_over?
   end
@@ -20,9 +24,9 @@ class Game
     @board.compare_cards_in_coordinates(coordinates, last_coordinates)
   end
 
-  def get_player_input(console_formatter)
+  def get_player_input(console_formatter, valid_moves)
     max_size = @board.get_size - 1
-    @player.get_input(max_size, console_formatter)
+    @player.get_input(max_size, console_formatter, valid_moves)
   end
 
   def guess_card_in_position(coordinates)

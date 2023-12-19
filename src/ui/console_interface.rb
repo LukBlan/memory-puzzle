@@ -40,7 +40,8 @@ class ConsoleInterface
   def game_loop
     until @game.game_over?
       self.display_board
-      coordinates = @game.get_player_input(@console_formatter)
+      valid_moves = @game.valid_moves
+      coordinates = @game.get_player_input(@console_formatter, valid_moves)
       @game.guess_card_in_position(coordinates)
       self.display_board
       sleep(1)

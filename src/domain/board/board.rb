@@ -5,6 +5,18 @@ class Board
     @grid = grid
   end
 
+  def valid_moves
+    valid_moves = []
+
+    @grid.each.with_index do |row, row_index|
+      row.each_with_index do |card, column_index|
+        valid_moves << [row_index, column_index] unless card.face_up
+      end
+    end
+
+    valid_moves
+  end
+
   def game_over?
     @grid.all? do |row|
       row.all? do |card|
