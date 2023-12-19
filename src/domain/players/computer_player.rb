@@ -2,6 +2,7 @@ class ComputerPlayer
   def initialize
     @known_cards = Hash.new
     @match_guess = Hash.new
+    @last_card = nil
   end
 
   def get_input(console_formatter, board, first_guess)
@@ -14,6 +15,8 @@ class ComputerPlayer
         new_move = get_random_move(board)
         self.check_if_new_match(new_move, board)
       end
+
+      @last_card = board.get_card(new_move)
     else
       if matching_guess?
         key = @match_guess.keys[0]
@@ -21,8 +24,10 @@ class ComputerPlayer
         @match_guess.delete(key)
       else
         new_move = get_random_move(board)
-        self.check_if_new_match(new_move, board)
+        check_if_new_match(new_move, board)
       end
+
+      @last_card = nil
     end
 
     new_move
@@ -31,7 +36,9 @@ class ComputerPlayer
   def check_if_new_match(new_move, board)
     card = board.get_card(new_move)
 
-    if @known_cards.has_key?(card)
+    if @last_card.eql?(card)
+      @known_cards.delete(card)
+    elsif @known_cards.has_key?(card)
       @match_guess[new_move] = @known_cards[card]
       @known_cards.delete(card)
     else
@@ -46,6 +53,7 @@ class ComputerPlayer
 
   def get_random_move(board)
     valid_moves = []
+    p valid_moves
     face_down_moves = board.valid_moves
     performed_moves = @known_cards.values
 
