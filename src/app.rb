@@ -3,6 +3,7 @@ require_relative './domain/board/board_factory'
 require_relative './ui/board_display'
 require_relative './domain/game'
 require_relative './domain/players/human_player'
+require_relative './domain/players/computer_player'
 require_relative './ui/console_formatter'
 
 # Domain
@@ -10,7 +11,8 @@ cards = ("A".."Z").to_a
 board_factory = BoardFactory.new(4, cards)
 board = board_factory.create
 human_player = HumanPlayer.new(",")
-game = Game.new(board, human_player)
+computer_player = ComputerPlayer.new
+game = Game.new(board, computer_player)
 
 # Ui
 board_display = BoardDisplay.new

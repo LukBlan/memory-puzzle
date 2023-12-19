@@ -3,7 +3,8 @@ class HumanPlayer
     @input_separator = input_separator
   end
 
-  def get_input(console_formatter, valid_moves)
+  def get_input(console_formatter, board, first_guess)
+    valid_moves = board.valid_moves
     user_input = get_user_input(console_formatter, valid_moves)
     coordinates = user_input.split(@input_separator)
     coordinates.map(&:to_i)

@@ -14,4 +14,8 @@ class Card
   def eql?(other)
     @symbol == other.symbol
   end
+
+  def hash
+    @symbol.hash
+  end
 end
