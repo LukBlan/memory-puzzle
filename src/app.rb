@@ -2,7 +2,7 @@ require_relative './ui/console_interface'
 require_relative './domain/board/board_factory'
 require_relative './ui/board_display'
 require_relative './domain/game'
-require_relative './domain/human_player'
+require_relative './domain/players/human_player'
 require_relative './ui/console_formatter'
 
 # Domain

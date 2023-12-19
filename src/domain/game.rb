@@ -25,8 +25,7 @@ class Game
   end
 
   def get_player_input(console_formatter, valid_moves)
-    max_size = @board.get_size - 1
-    @player.get_input(max_size, console_formatter, valid_moves)
+    @player.get_input(console_formatter, valid_moves)
   end
 
   def guess_card_in_position(coordinates)
