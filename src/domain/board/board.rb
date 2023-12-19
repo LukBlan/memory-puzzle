@@ -8,14 +8,9 @@ class Board
   def game_over?
     @grid.all? do |row|
       row.all? do |card|
-        card.found
+        card.face_up
       end
     end
-  end
-
-  def toggle_card_in_position(coordinates)
-    card = get_card(coordinates)
-    card.toggle
   end
 
   def compare_cards_in_coordinates(coordinates, last_coordinates)

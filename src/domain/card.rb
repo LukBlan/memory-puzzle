@@ -1,13 +1,14 @@
 class Card
-  attr_reader :symbol, :found
+  attr_reader :symbol, :face_up
 
   def initialize(symbol)
     @symbol = symbol
-    @found = false
+    @face_up = false
   end
 
   def toggle
-    @found = !@found
+    @face_up = !@face_up
+
   end
 
   def eql?(other)

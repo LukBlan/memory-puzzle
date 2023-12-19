@@ -7,7 +7,7 @@ class BoardDisplay
       print "#{row_index}"
 
       row.each_with_index do |card|
-        if card.found
+        if card.face_up
           print " #{card.symbol}"
         else
           print("  ")
